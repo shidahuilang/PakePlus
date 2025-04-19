@@ -112,7 +112,8 @@
         "showName": "PakePlus",
         "version": "0.0.1",
         "webUrl": "https://juejin.cn/",
-        "id": "com.oaikes.app"
+        "id": "com.oaikes.app",
+        "debug": false
     },
     "android": {
         "name": "PakePlus",
@@ -127,8 +128,9 @@
         "copyTo": "./app/src/main/res",
         "androidResDir": "./app/src/main/res",
         "desc": "PakePlus Project by 1024xiaoshen",
-        "pubBody": "PakePlus PubBody",
-        "isHtml": false
+        "pubBody": "",
+        "isHtml": false,
+        "debug": false
     },
     "desktop": {
         "name": "PakePlus2",
@@ -141,7 +143,7 @@
         "inputPath": "../app-icon.png",
         "tempPath": "./processed-image.png",
         "icnsPath": "../src-tauri/icons/icon.icns",
-        "pubBody": "PakePlus PubBody",
+        "pubBody": "",
         "isHtml": false,
         "single": true,
         "state": true,

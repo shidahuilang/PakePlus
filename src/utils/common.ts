@@ -5,6 +5,7 @@ import { open } from '@tauri-apps/plugin-dialog'
 import { readDir } from '@tauri-apps/plugin-fs'
 import { writeText } from '@tauri-apps/plugin-clipboard-manager'
 import { join } from '@tauri-apps/api/path'
+import { ElMessage } from 'element-plus'
 
 export const mainBranch = 'main'
 export const webBranch = 'web2'
@@ -15,6 +16,7 @@ export const fileSizeLimit = 1024 * 1024 * 10
 
 // urlMap
 export const urlMap = {
+    pakeplus: 'https://www.pakeplus.com/',
     github: 'https://github.com/Sjj1024/PakePlus',
     ppofficial: 'https://ppofficial.pages.dev/',
     configdoc: 'https://ppofficial.pages.dev/guide/config.html',
@@ -1056,3 +1058,19 @@ export const rootPath = (file: File) => {
     // 替换根路径为 "src"
     return 'src' + file.webkitRelativePath.slice(firstSlashIndex)
 }
+
+// single message tips
+let messageDom: any = null
+export const oneMessage: any = (options: any) => {
+    if (messageDom) messageDom.close()
+    messageDom = ElMessage(options)
+}
+
+const typeArr = ['success', 'error', 'warning', 'info']
+typeArr.forEach((type) => {
+    oneMessage[type] = (options: any) => {
+        if (typeof options === 'string') options = { message: options }
+        options.type = type
+        return oneMessage(options)
+    }
+})
